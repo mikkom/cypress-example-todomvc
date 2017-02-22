@@ -1,48 +1,13 @@
-## our React TodoMVC app is written
-## in node so thats what we select.
-## Cypress is agnostic to your apps
-## backend language though.
 language: node_js
-
 node_js:
-  - 5.3
-
+- 5.3
 install:
-  - npm install
-
-  ## install the Cypress CLI Tools
-  ## which gives us access to the
-  ## `cypress` command used below
-  - npm install -g cypress-cli
-
+- npm install
+- npm install -g cypress-cli
 before_script:
-  ## runs the 'start' script which
-  ## boots our local app server on port 8989
-  ## which cypress expects to be running
-  ## -----------------------------------
-  ## the '-- --silent' passes arguments
-  ## to http-server which silences its output
-  ## else our travis logs would be cluttered
-  ## with output from HTTP requests
-  ## https://docs.npmjs.com/cli/start
-  ## https://github.com/indexzero/http-server
-  ## ---------------------------------------
-  ## we use the '&' ampersand which tells
-  ## travis to run this process in the background
-  ## else it would block execution and hang travis
-  - npm start -- --silent &
-
+- npm start -- --silent &
 script:
-  ## now run cypress headlessly
-  ## and record all of the tests.
-  ## Cypress will search for a
-  ## CYPRESS_RECORD_KEY environment
-  ## variable by default and apply
-  ## this to the run.
-  - cypress run --record
-
-  ## alternatively we could specify
-  ## a specific record key to use
-  ## like this without having to
-  ## configure environment variables
-  ## - cypress run --record --key <your_record_key>
+- cypress run --record
+env:
+  matrix:
+    secure: lVr0oMxabpU/VRFd/JWF+7qbvKQLY1uUVnJPfiCLCbh4Tv1Sc6YOnFYzxgoZ/d7OoySzil18CRIj7ldvICoxqYg1E2krnVgJzr65UBC08Kt0jt4KwdOn1Q/cQZ22hdM+dx2OQGoJWefc+H1/AuQ+khcVQFaDTKOC30WWnRFnTTabjC9h10zc97TuO+SwPxlPHthO0lvZfGiY3depeu76hiRy5tjPjqeOsBvCw12iUO2FAWk2t3ZfpTFAn0ND1dF4bW0rgVUSZmeGQCaUdfSPjFGyh7qM+ro2gLbME8wNVnasn2JkjGhJXZYqYL47SbTWV0hzKIDwnkKDrDkG6dbqr6FP8qPJvtF0xFStDRek+LhuxTIaR+7o3o15uyUgWb8McFWdaY/qbfs4KBhVvVn3rVhqlMZw10PPrHerE+wfoUUBWdfBuOKYaA19auhox3/MrOCb27e1uIsOCXZYxCRcncvZ9XVEmZvfr0EjzGqVCMg0/4MKji4mMhKTUyKvnWkaQCIaC/xxLOE8m+tCSzKqWXlSGT+tnLePe6JSrTGit8sUke/R9xBv4LUOIzjGN3PrAGGJo3yBDdevNkPWb1Pgpvbwe80ikw9iMUyT9JQrgm0oKvzKDU756WNDb0RVzJZ1x+qyAuaD8zP1+Yo/eXZNWmxALqoqNExg3M9+fNnipcs=
