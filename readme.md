@@ -48,9 +48,9 @@ npm install
 npm start
 ```
 
-The `npm start` script will spawn a webserver on port `8888` which hosts the TodoMVC app.
+The `npm start` script will spawn a webserver on port `8989` which hosts the TodoMVC app.
 
-You can verify this by opening your browser and navigating to: [`http://localhost:8888`](http://localhost:8888)
+You can verify this by opening your browser and navigating to: [`http://localhost:8989`](http://localhost:8989)
 
 You should see the TodoMVC app up and running. We are now ready to run Cypress tests.
 

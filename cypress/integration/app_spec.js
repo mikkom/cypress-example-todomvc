@@ -31,7 +31,7 @@ describe("TodoMVC - React", function(){
     // before each test, which serves us the
     // TodoMVC App we want to test against
     //
-    // We've set our baseUrl to be http://localhost:8888
+    // We've set our baseUrl to be http://localhost:8989
     // which is automatically prepended to cy.visit
     //
     // https://on.cypress.io/api/visit
